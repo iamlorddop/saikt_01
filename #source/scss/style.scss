@@ -1446,19 +1446,21 @@ body{
 }
 
 @media (max-width: 440px){
-	.about-bg{
-		.about__three{
-			right: -96px;
-		}
-		.about__four{
-			right: -190px;
-			width: 562px;
-			height: 82px;
-		}
-		.about__five{
-			right: -124px;
-			width: 457px;
-			height: 456px;
+	.about__top{
+		.about-bg{
+			.about__three{
+				right: -96px;
+			}
+			.about__four{
+				right: -190px;
+				width: 562px;
+				height: 82px;
+			}
+			.about__five{
+				right: -124px;
+				width: 457px;
+				height: 456px;
+			}
 		}
 	}
 
@@ -1524,7 +1526,7 @@ body{
 		right: 136px;
 	}
 	.review__row{
-		width: 1143px;
+		width: 1212px;
 	}
 	.review{
 		.review__title{
@@ -1535,7 +1537,7 @@ body{
 		padding-left: 32px;
 	}
 	.review__item{
-		margin-right: 98px;
+		margin-right: 40px;
 		width: 361px;
 		.review__image{
 			img{

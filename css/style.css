@@ -1727,7 +1727,7 @@ body {
 }
 @media (max-width: 428px) {
   .training__form {
-    margin: 0 12px;
+    margin: 0 36px;
     width: 400px;
     height: 1054px;
   }
@@ -1768,11 +1768,11 @@ body {
   }
 
   .review .review__title {
-    margin: 0 0 30px 20px;
+    margin: 0 0 30px 36px;
   }
 
   .review__track {
-    padding-left: 13px;
+    padding-left: 32px;
   }
 
   .review__item {
@@ -1785,7 +1785,7 @@ body {
   }
 
   .slider-arrows {
-    margin: 40px 0 0 9.5%;
+    margin: 40px 0 0 13%;
   }
 
   .training__form {
@@ -1814,7 +1814,15 @@ body {
   }
 
   .review__track {
-    padding-left: 8px;
+    padding-left: 13px;
+  }
+
+  .review .review__title {
+    margin: 0 0 30px 16px;
+  }
+
+  .slider-arrows {
+    margin: 40px 0 0 11%;
   }
 
   .review__item {

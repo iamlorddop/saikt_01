@@ -1,46 +1,23 @@
 <?php
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
+	$to = 'juliahavaeva7@gmail.com';
+	$from = trim($_POST['email']);
 
-	require 'phpmailer/src/Exception.php';
-	require 'phpmailer/src/PHPMailer.php';
-
-	$mail = new PHPMailer(true);
-	$mail->CharSet = 'UTF-8';
-	$mail->setLanguage = ('ru', 'phpmailer/language/');
-	$mail->IsHTML(true);
-
-	// from
-	$mail->setFrom('juliahavaeva7@gmail.com');
-	// to
-	$mail->setAddress('juliahavaeva7@gmail.com');
-	// theme
-	$mail->Subject = 'Заявка на тренинг';
-
-	// letter body 
-	$body = '<h1>Заявка</h1>';
+	$body = '<h1>Заявка</h1>' . "\r\n";
 
 	if(trim(!empty($_POST['name']))){
-		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
+		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>'."\r\n";
 	}
 	if(trim(!empty($_POST['tel']))){
-		$body.='<p><strong>Телефон:</strong> '.$_POST['tel'].'</p>';
+		$body.='<p><strong>Телефон:</strong> '.$_POST['tel'].'</p>'."\r\n";
 	}
 	if(trim(!empty($_POST['email']))){
-		$body.='<p><strong>E-mail:</strong> '.$_POST['emal'].'</p>';
+		$body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>'."\r\n";
 	}
+	$body .= "X-Mailer: PHP/" . phpversion();
 
-	$mail->Body = $body;
-
-	// Sending
-	if(!$mail->send()){
-		$message = 'Ошибка';
+	if(mail($to, $from, $body)){
+		echo 'Заявка отправлена';	
 	} else {
-		$message = 'Данные отправлены!';
+		echo 'Заявка не отправлена';	
 	}
-
-	$response = ['message' => $message];
-
-	header('Content-type: application/json');
-	echo json_encode($response);
 ?>

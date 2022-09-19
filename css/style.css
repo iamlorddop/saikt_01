@@ -231,7 +231,7 @@ body {
 }
 .about-bg .about__three {
   position: absolute;
-  top: 50px;
+  top: 51px;
   right: 130px;
   z-index: 5;
 }
@@ -678,7 +678,6 @@ body {
 
 .review__track {
   position: relative;
-  padding: 0 0 0 64px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -731,6 +730,48 @@ body {
 .training {
   padding: 80px 0;
   background: #028CCF;
+}
+
+.training__thanks {
+  margin: 0 50px;
+  padding: 80px 56px 54px 56px;
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  max-width: 1288px;
+  height: 724px;
+  background: #FFFFFF;
+  border-radius: 22.5965px;
+}
+.training__thanks .training__thanks-image {
+  position: relative;
+  margin: 0 auto;
+}
+.training__thanks .training__thanks-image::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 41px;
+  left: 46px;
+  width: 41px;
+  height: 48px;
+  background: url("../img/pop-up/submitgreen.svg");
+}
+.training__thanks .training__thanks-text {
+  margin: 50px 0 100px 0;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  letter-spacing: 0.02em;
+  color: #008DD2;
 }
 
 .training__form {
@@ -981,7 +1022,6 @@ body {
     right: 520px;
   }
   .about-bg .about__three {
-    top: 50px;
     right: 26px;
   }
 
@@ -1052,6 +1092,10 @@ body {
     display: block;
     text-align: center;
   }
+
+  .review__track {
+    padding: 0 0 0 36px;
+  }
 }
 @media (max-width: 1198px) {
   .logo img {
@@ -1121,7 +1165,7 @@ body {
     display: none;
   }
   .about-bg .about__three {
-    top: 47px;
+    top: 48px;
     right: 60px;
     width: 340px;
     height: 435px;
@@ -1314,11 +1358,6 @@ body {
   .benefits__items {
     margin: 0 0 50px 130px;
   }
-
-  .slider-arrows {
-    margin: 40px 0 0 34%;
-    text-align: left;
-  }
 }
 @media (max-width: 997px) {
   .header__body {
@@ -1351,8 +1390,12 @@ body {
     margin: 0 0 50px 16px;
   }
 
-  .slider-arrows {
-    margin: 40px 0 0 26%;
+  .training__thanks {
+    height: 1024px;
+  }
+
+  .training__thanks {
+    padding: 80px 15px 56px 15px;
   }
 
   .training__form {
@@ -1450,9 +1493,10 @@ body {
     padding: 17px 22px;
     width: 295px;
     height: 80px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 20px;
+    text-align: center;
   }
 
   .benefits__image {
@@ -1560,10 +1604,6 @@ body {
     margin: 0 0 50px 36px;
   }
 
-  .slider-arrows {
-    margin: 40px 0 0 12%;
-  }
-
   .review__bg .bg__one {
     top: 5%;
     left: 60%;
@@ -1636,6 +1676,11 @@ body {
   .blocks__image img {
     max-width: 364px;
     height: 210px;
+  }
+
+  .training__thanks .training__thanks-text {
+    font-size: 28px;
+    line-height: 36px;
   }
 }
 @media (max-width: 500px) {
@@ -1732,6 +1777,12 @@ body {
     height: 1054px;
   }
 
+  .training__thanks {
+    margin: 0 36px;
+    width: 340px;
+    height: 1054px;
+  }
+
   .review__track {
     padding-left: 10px;
   }
@@ -1784,10 +1835,6 @@ body {
     height: 537px;
   }
 
-  .slider-arrows {
-    margin: 40px 0 0 13%;
-  }
-
   .training__form {
     width: 340px;
     height: 1084px;
@@ -1819,10 +1866,6 @@ body {
 
   .review .review__title {
     margin: 0 0 30px 16px;
-  }
-
-  .slider-arrows {
-    margin: 40px 0 0 11%;
   }
 
   .review__item {

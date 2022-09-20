@@ -1390,6 +1390,18 @@ body {
     margin: 0 0 50px 16px;
   }
 
+  .blocks__items {
+    width: 1296px;
+  }
+
+  .blocks__track {
+    width: 1296px;
+  }
+
+  .block__item {
+    margin-right: 30px;
+  }
+
   .training__thanks {
     height: 1024px;
   }
@@ -1698,12 +1710,12 @@ body {
 }
 @media (max-width: 480px) {
   .blocks__items {
-    width: 1020px;
+    width: 990px;
     height: 722px;
   }
 
   .blocks__slider {
-    width: 1020px;
+    width: 990px;
     height: 722px;
   }
 

@@ -1,5 +1,6 @@
 /* -------------------- slider for blocks -------------------- */
-let slider = document.querySelector(".blocks__items"),
+if(window.matchMedia("(max-width: 1540px)").matches){
+  let slider = document.querySelector(".blocks__items"),
   sliderList = slider.querySelector(".blocks__slider"),
   sliderTrack = slider.querySelector(".blocks__track"),
   slides = slider.querySelectorAll(".block__item"),
@@ -163,12 +164,15 @@ let slider = document.querySelector(".blocks__items"),
     allowSwipe = true;
   };
 
-sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
-sliderList.classList.add("grab");
+  sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
+  sliderList.classList.add("grab");
 
-sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
-slider.addEventListener("touchstart", swipeStart);
-slider.addEventListener("mousedown", swipeStart);
+  sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
+  slider.addEventListener("touchstart", swipeStart);
+  slider.addEventListener("mousedown", swipeStart);
+};
+
+
 
 /* -------------------- slider for review -------------------- */
 let position = 0;

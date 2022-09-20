@@ -1,23 +1,24 @@
 <?php
-//	$to = 'mail@mail.com';
-//	$from = trim($_POST['email']);
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	require "./PHPMailer/src/PHPMailer.php";
+	require "./PHPMailer/src/Exception.php";
 
-//	$body = '<h1>Заявка</h1>' . "\r\n";
+	$mail = new PHPMailer(true);
+	$mail->CharSet = "UTF-8";
 
-//	if(trim(!empty($_POST['name']))){
-//		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>'."\r\n";
-//	}
-//	if(trim(!empty($_POST['tel']))){
-//		$body.='<p><strong>Телефон:</strong> '.$_POST['tel'].'</p>'."\r\n";
-//	}
-//	if(trim(!empty($_POST['email']))){
-//		$body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>'."\r\n";
-//	}
-//	$body .= "X-Mailer: PHP/" . phpversion();
+	$name = $_POST["name"];
+	$tel = $_POST["tel"];
+	$email = $_POST["email"];
 
-//	if(mail($to, $from, $body)){
-//		echo 'Заявка отправлена';	
-//	} else {
-//		echo 'Заявка не отправлена';	
-//	}
+	$theme = '[ЗАЯВКА НА ТРЕНИНГ]';
+	$body = 'Имя:' . $name . 'Телефон: ' . $tel . 'Email: ' . $email;
+
+	// send to
+	$mail->addAddress("juliahavaeva7@gmail.com");
+	
+	$mail->Subject = $theme;
+	$mail->Body = $body;
+
+	$mail->send();
 ?>

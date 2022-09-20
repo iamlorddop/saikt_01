@@ -6,19 +6,42 @@
 
 	$mail = new PHPMailer(true);
 	$mail->CharSet = "UTF-8";
+	$mail->IsHTML(true);
+
+	// send to
+	$mail->addAddress("juliahavaeva7@gmail.com");
+	
+	$theme = '[ЗАЯВКА НА ТРЕНИНГ]';
+	$mail->Subject = $theme;
+
+	// letter's body
+	$body = '<h1>Данные заявки</h1>';
 
 	$name = $_POST["name"];
 	$tel = $_POST["tel"];
 	$email = $_POST["email"];
 
-	$theme = '[ЗАЯВКА НА ТРЕНИНГ]';
-	$body = 'Имя:' . $name . 'Телефон: ' . $tel . 'Email: ' . $email;
+	if(trim(!empty($name))){
+		$body.='<p><strong>Имя:</strong> '.$name.'</p>';
+	}
+	if(trim(!empty($tel))){
+		$body.='<p><strong>Телефон:</strong> '.$tel.'</p>';
+	}
+	if(trim(!empty($email))){
+		$body.='<p><strong>From:</strong> '.$email.'</p>';
+	}
 
-	// send to
-	$mail->addAddress("juliahavaeva7@gmail.com");
-	
-	$mail->Subject = $theme;
+
 	$mail->Body = $body;
 
-	$mail->send();
-?>
+	// send
+	if(!$mail->send()) {
+		$message = 'Ошибка';
+	} else {
+		$message = 'Данные не отправлены!';
+	}
+
+	$response = ['message' => $message];
+
+	header('Content-type: application/json');
+	echo json_encode($response);

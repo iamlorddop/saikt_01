@@ -115,26 +115,28 @@ body{
 	}
 	.about__two{
 		position: absolute;
-		top: 120px;
-		right: 488px;
+		top: 70px;
+		right: 510px;
 		z-index: 4;
 	}
 	.about__three{
 		position: absolute;
 		top: 51px;
-		right: 130px;
+		right: 200px;
 		z-index: 5;
 	}
 	.about__four{
 		position: absolute;
-		top: 94px;
-		right: 0;
+		top: 56px;
+		right: 15px;
 		z-index: 3;
 	}
 	.about__five{
 		position: absolute;
-		top: 94px;
+		top: 55px;
 		right: 0;
+		width: 730px;
+		height: 730px;
 		z-index: 3;
 	}
 }
@@ -142,7 +144,7 @@ body{
 .about__body{
 	position: absolute;
 	top: 26%;
-	left: 19%;
+	left: 22.5%;
 	width: 628px;
 	color: #fff;
 	z-index: 5;
@@ -290,7 +292,13 @@ body{
 		width: 472px;
 		height: 333.54px;
 		border-radius: 22px;
+		transition: transform 0.4s ease 0s;
 	}
+}
+
+.scale{
+	box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.4);
+	transform: scale(1.65);
 }
 
 .speaker{
@@ -393,14 +401,15 @@ body{
 
 .blocks__body{
 	margin-bottom: 52px;
+	text-align: center;
 }
 
 .blocks__track{
 	display: flex;
+	justify-content: center;
 }
 
 .block__item{
-	margin-right: 60px;
 	padding: 14px;
 	display: grid;
 	grid-auto-flow: row;
@@ -410,6 +419,9 @@ body{
 	background: #FBFBFB;
 	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
 	border-radius: 22px;
+	&:not(:last-child){
+	margin-right: 40px;
+	}
 }
 
 .blocks__initem{
@@ -587,6 +599,7 @@ body{
 	.training__thanks-image{
 		position: relative;
 		margin: 0 auto;
+		animation: circle 30s linear infinite;
 		&::before{
 			content: "";
 			display: block;
@@ -596,6 +609,7 @@ body{
 			width: 41px;
 			height: 48px;
 			background: url('../img/pop-up/submitgreen.svg');
+			animation: none;
 		}
 	}
 	.training__thanks-text{
@@ -743,6 +757,16 @@ body{
 	}
 }
 
+.js-input-checkbox{
+	&.error{
+		.custom-label{
+			&::before{
+				box-shadow: 0 0 15px #ff5151;
+			}
+		}
+	}
+}
+
 .footer{
 	padding: 50px 0 41px 0;
 }
@@ -792,8 +816,38 @@ body{
 }
 
 @media (max-width: 2560px){
+	.about__body{
+		position: absolute;
+		top: 26%;
+		left: 22.5%;
+	}	
 	.benefits__items{
 		margin: 0 0 50px 140px;
+	}
+}
+
+@media (max-width: 1890px){
+	.about__body{
+		position: absolute;
+		top: 26%;
+		left: 20%;
+	}
+	.about__speaker{
+		position: absolute;
+		bottom: 8%;
+		right: 28.5%;
+	}
+}
+
+@media (max-width: 1810px){
+	.about__body{
+		left: 19%;
+	}
+}
+
+@media (max-width: 1790px){
+	.about__body{
+		left: 17.5%;
 	}
 }
 
@@ -824,18 +878,28 @@ body{
 	.photo{
 		right: -60px;
 	}
+	
+	.blocks__body{
+		text-align: left;
+	}
 
 	.blocks__items{
 		position: relative;
 		margin: 0 auto;
-		width: 1416px;
+		width: 1828px;
 		height: 672px;
 		user-select: none;
 		touch-action: pan-y;
 	}
+
+	.block__item{
+		&:not(:last-child){
+			margin-right: 60px;
+		}
+	}
 	 
 	.blocks__slider {
-		width: 1416px;
+		width: 1828px;
 		height: 672px;
 		.grab {
 			cursor: grab;
@@ -971,7 +1035,6 @@ body{
 		margin: 0 0 50px 70px;
 		column-gap: 4px;
 		row-gap: 42px;
-		grid-template-rows: 270px;
 		grid-template-columns: repeat(auto-fit, minmax(195px, 260px));
 		.benefits__item{
 			margin: -20px 0 0 0;
@@ -1175,15 +1238,20 @@ body{
 	.benefits__items{
 		margin: 0 0 50px 16px;
 	}
-	.blocks__items{
-		width: 1296px;
+
+	.blocks__slider{
+		width: 1266px;
 	}
+
 	.blocks__track{
-		width: 1296px;
+		justify-content: start;
+		width: 1266px;
 	}
 
 	.block__item{
-		margin-right: 30px;
+		&:not(:last-child){
+			margin-right: 30px;
+		}
 	}
 
 	.training__thanks{
@@ -1268,7 +1336,6 @@ body{
 		margin: 0 0 100px 220px;
 		column-gap: 4px;
 		row-gap: 88px;
-		grid-template-rows: 270px;
 		grid-template-columns: repeat(auto-fit, minmax(195px, 305px));
 		.benefits__item{
 			margin: -30px 0 -45px 0;
@@ -1422,11 +1489,11 @@ body{
 
 @media (max-width: 570px){
 	.blocks__items{
-		width: 1365px;
+		width: 1700px;
 	}
 	 
 	.blocks__slider {
-		width: 1365px;
+		width: 1700px;
 	}
 
 	.block__item{
@@ -1450,11 +1517,11 @@ body{
 
 @media (max-width: 500px){
 	.blocks__items{
-		width: 1245px;
+		width: 1740px;
 	}
 	 
 	.blocks__slider {
-		width: 1245px;
+		width: 1740px;
 	}
 
 	.block__item{
@@ -1464,12 +1531,12 @@ body{
 
 @media (max-width: 480px){
 	.blocks__items{
-		width: 990px;
+		width: 1360px;
 		height: 722px;
 	}
 	 
 	.blocks__slider {
-		width: 990px;
+		width: 1360px;
 		height: 722px;
 	}
 
@@ -1521,9 +1588,13 @@ body{
 		.certificate__image{
 			img{
 				width: 334px;
-				height: 268px;
+				height: 243px;
 			}
 		}
+	}
+
+	.scale{
+		transform: scale(1.25);
 	}
 
 	.circle{
@@ -1628,6 +1699,10 @@ body{
 @media (max-width: 375px){
 	.benefits__items{
 		margin: 0 0 100px 11%;
+	}
+
+	.scale{
+		transform: scale(1.1);
 	}
 
 	.review__track{

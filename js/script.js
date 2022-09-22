@@ -1,3 +1,17 @@
+/* -------------------- change day -------------------- */
+const today = String((new Date()).getDate()).padStart(2, '0');
+
+const dayStartElements = document.querySelectorAll(".js-text");
+dayStartElements.forEach((el) => { el.innerText = `${today}` });
+
+/* -------------------- certificate -------------------- */
+function hoverOnBtn(){
+  document.getElementById('js-image').classList.add('scale');
+}
+function hoverOffBtn(){
+  document.getElementById('js-image').classList.remove('scale');
+}
+
 /* -------------------- slider for blocks -------------------- */
 if(window.matchMedia("(max-width: 1414px)").matches){
   let slider = document.querySelector(".blocks__items"),
@@ -172,8 +186,6 @@ if(window.matchMedia("(max-width: 1414px)").matches){
   slider.addEventListener("mousedown", swipeStart);
 };
 
-
-
 /* -------------------- slider for review -------------------- */
 let position = 0;
 const slidesToShow = 3;
@@ -223,14 +235,14 @@ function validateCountry(country) {
 }
 
 function validatePhone(phone) {
-  let re = /^[0-9\s]*$/;
+  let re =  /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
   return re.test(String(phone));
 }
 
 form.onsubmit = function () {
   let emailVal = inputEmail.value,
     phoneVal = inputPhone.value;
-  emptyInputs = Array.from(formInputs).filter((input) => input.value === "");
+    emptyInputs = Array.from(formInputs).filter((input) => input.value === "");
 
   formInputs.forEach(function (input) {
     if (input.value === "") {
@@ -274,6 +286,52 @@ form.onsubmit = function () {
     inputCheckbox.classList.add("error");
     return false;
   } else {
-    inputEmail.classList.remove("error");
+    inputCheckbox.classList.remove("error");
   }
 };
+
+/*============ if form send ===========*/
+let formSend = document.querySelector('.form')
+
+formSend.addEventListener('submit', function(e) {
+  e.preventDefault();
+  let data = new FormData(this);
+  let url = 'sendmail.php';
+  fetch(url, {
+      method: 'post',
+      // headers: {
+        //"Content-type": "application/json" -- "application/x-www-form-urlencoded; charset=UTF-8"
+      //},
+      body: data 
+    })
+    .then(response => response.json())
+    .then((json) => { 
+      if (json.id === 101) { 
+        // Смена формы на "Ваша заявка отправлена"
+        // script
+        function actionHide() {
+          let hideForm = document.getElementsByClassName('training__form');
+          let actualDisplay = getComputedStyle(hideForm).display;
+          if (actualDisplay == 'flex') {
+            hideForm.style.display = 'none';
+          };
+        }
+
+        function actionShow() {
+          let showForm = document.getElementsByClassName('training__thanks');
+          let actualDisplay = getComputedStyle(showForm).display;
+          if (actualDisplay == 'none') {
+            hideForm.style.display = 'flex';
+          };
+        }
+
+        actionHide();
+        actionShow();
+      } else {
+        alert('Ошибка!');
+      }
+      // If form send
+      console.log(json)
+    })
+    .catch(err => console.log(err));
+});

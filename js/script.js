@@ -215,123 +215,87 @@ const setPosition = () => {
 };
 
 /* -------------------- form -------------------- */
-let form = document.querySelector(".js-form"),
-  formInputs = document.querySelectorAll(".js-input"),
-  inputEmail = document.querySelector(".js-input-email"),
-  inputPhone = document.querySelector(".js-input-phone"),
-  inputCheckbox = document.querySelector(".js-input-checkbox");
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.querySelector(".js-form");  
+  form.addEventListener('submit', formSend);
 
-let formData = new FormData(form);
+  async function formSend(e) {
+    e.preventDefault();
+    
+    let error = formValidate(form);
 
-function validateEmail(email) {
-  let re =
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-}
+    let formData = new FormData(form);
 
-function validateCountry(country) {
-  let re = new RegExp(".co$");
-  return re.test(String(country).toLowerCase());
-}
+    if(error === 0){
+      let response = await fetch('sendemail.php',{
+        method: 'POST',
+        body: formData
+      });
+      if (response.ok) {
+        let result = await response.json();
+        alert(result.message);
 
-function validatePhone(phone) {
-  let re =  /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
-  return re.test(String(phone));
-}
+        document.querySelectorAll('#btn').forEach(item => { 
+          item.addEventListener('onsubmit', () => { 
+              document.getElementsByClassName('training__thanks').style.display = 'flex'; 
+          }); 
+        });
 
-form.onsubmit = function () {
-  let emailVal = inputEmail.value,
-    phoneVal = inputPhone.value;
-    emptyInputs = Array.from(formInputs).filter((input) => input.value === "");
-
-  formInputs.forEach(function (input) {
-    if (input.value === "") {
-      input.classList.add("error");
-    } else {
-      input.classList.remove("error");
-    }
-  });
-
-  if (emptyInputs.length !== 0) {
-    console.log("inputs not fielled");
-    return false;
-  }
-
-  if (!validateEmail(emailVal)) {
-    console.log("email not valid");
-    inputEmail.classList.add("error");
-    return false;
-  } else {
-    inputEmail.classList.remove("error");
-  }
-
-  if (validateCountry(emailVal)) {
-    console.log("email not valid");
-    inputEmail.classList.add("error");
-    return false;
-  } else {
-    inputEmail.classList.remove("error");
-  }
-
-  if (!validatePhone(phoneVal)) {
-    console.log("phone not valid");
-    inputPhone.classList.add("error");
-    return false;
-  } else {
-    inputPhone.classList.remove("error");
-  }
-
-  if (!inputCheckbox.checked) {
-    console.log("checkbox not valid");
-    inputCheckbox.classList.add("error");
-    return false;
-  } else {
-    inputCheckbox.classList.remove("error");
-  }
-};
-
-/*============ if form send ===========*/
-let formSend = document.querySelector('.form')
-
-formSend.addEventListener('submit', function(e) {
-  e.preventDefault();
-  let data = new FormData(this);
-  let url = 'sendmail.php';
-  fetch(url, {
-      method: 'post',
-      // headers: {
-        //"Content-type": "application/json" -- "application/x-www-form-urlencoded; charset=UTF-8"
-      //},
-      body: data 
-    })
-    .then(response => response.json())
-    .then((json) => { 
-      if (json.id === 101) { 
-        // Смена формы на "Ваша заявка отправлена"
-        // script
-        function actionHide() {
-          let hideForm = document.getElementsByClassName('training__form');
-          let actualDisplay = getComputedStyle(hideForm).display;
-          if (actualDisplay == 'flex') {
-            hideForm.style.display = 'none';
-          };
-        }
-
-        function actionShow() {
-          let showForm = document.getElementsByClassName('training__thanks');
-          let actualDisplay = getComputedStyle(showForm).display;
-          if (actualDisplay == 'none') {
-            hideForm.style.display = 'flex';
-          };
-        }
-
-        actionHide();
-        actionShow();
+        form.reset();
       } else {
-        alert('Ошибка!');
+        alert('Ошибка');
       }
-      // If form send
-      console.log(json)
-    })
-    .catch(err => console.log(err));
+    } else {
+      alert('Заполните обязательные поля');
+    }
+  }
+
+  function formValidate(form){
+    let error = 0;
+    let formReq = document.querySelectorAll('.req');
+
+    for (let index = 0; index < formReq.length; index++){
+      const input = formReq[index];
+      formRemoveError(input);
+
+      if(input.classList.contains('email')){
+        if (emailTest(input)){
+          formAddError(input);
+          error ++;
+        }
+      } else if(input.classList.contains('phone')) {
+        if (phoneTest(input)){
+          formAddError(input);
+          error ++;
+        }
+      } else if(input.getAttribute("type") === "checkbox" && input.checked === false) {
+        formAddError(input);
+        error++;
+      } else {
+        if (input.value === '') {
+          formAddError(input);
+          error ++;
+        }
+      }
+    }
+    return error;
+  }
+
+  function formAddError(input) {
+    input.parentElement.classList.add('error');
+    input.classList.add('error');
+  }
+
+  function formRemoveError(input) {
+    input.parentElement.classList.remove('error');
+    input.classList.remove('error');
+  }
+  // --------------------- Validate -------------------- //
+  function emailTest(input) {
+    return !/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input.value);
+  }
+  
+  function phoneTest(input) {
+    return !/^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(input.value);
+  }
 });

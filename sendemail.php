@@ -16,8 +16,9 @@
 	$mail->CharSet = "UTF-8";
 	$mail->IsHTML(true);
 
+	$mail->setFrom("mail@mail.mail", "САИКТ");
 	// send to
-	$mail->addAddress("juliahavaeva7@gmail.com");
+	$mail->addAddress("juliahavaeva7@gmail.com", "САИКТ");
 	
 	$theme = '[ЗАЯВКА НА ТРЕНИНГ]';
 	$mail->Subject = $theme;
@@ -38,15 +39,13 @@
 	if(trim(!empty($email))){
 		$body.='<p><strong>От:</strong> '.$email.'</p>';
 	}
-
-
 	$mail->Body = $body;
-
+	
 	// send
 	if(!$mail->send()) {
-		$message = 'Ошибка';
+		$message = 'Ошибка!';
 	} else {
-		$message = 'Данные не отправлены!';
+		$message = 'Данные отправлены!';
 	}
 
 	$response = ['message' => $message];

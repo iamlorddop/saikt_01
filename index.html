@@ -60,7 +60,6 @@
 									<p>Автор и ведущий тренинга</p>
 								</div>
 								<img src="./img/yellow.svg" alt="" class="about__one">
-								<img src="./img/about/red-circle.svg" alt="" class="about__two">
 								<img src="./img/about/photomaksim.svg" alt="" class="about__three">
 								<img src="./img/about/02.svg" alt="" class="about__four">
 								<img src="./img/about/03.svg" alt="" class="about__five">
@@ -304,15 +303,15 @@
 										</div>
 									</div>
 							</div>
-							<form action="sendemail.php" method="POST" class="form js-form">
+							<form action="sendemail.php" method="POST" class="form js-form" onSubmit="return false;">
 								<p class="form__text">Ваше имя</p>
-								<input class="input js-input" type="text" placeholder="Имя" name="name">
+								<input class="input req" type="text" placeholder="Имя" name="name">
 								<p class="form__text">Ваш телефон</p>
-								<input class="input js-input js-input-phone" type="tel" placeholder="Телефон" name="tel">
+								<input class="input req phone" type="tel" placeholder="Телефон" name="tel">
 								<p class="form__text">Ваш Email</p>
-								<input class="input js-input js-input-email" type="email" placeholder="Email" name="email">
-								<button type="submit">отправить</button>
-								<input class="custom-checkbox js-input js-input-checkbox" type="checkbox" id="custom" name="checkbox" checked>
+								<input class="input req email" type="email" placeholder="Email" name="email">
+								<button type="submit" id="btn" data-submit>отправить</button>
+								<input class="custom-checkbox req" type="checkbox" id="custom" name="checkbox" checked>
 								<label class="custom-label" for="custom"><span>Я согласен с <a href="" target="_blank">правилами обработки персональных данных</a></span></label>
 							</form>
 						</div>
@@ -360,6 +359,7 @@
 			</div>
 		</footer>
 	</div>
+	<script src="./js/jquery.js"></script>
 	<script src="./js/script.js"></script>	
 </body>
 </html>

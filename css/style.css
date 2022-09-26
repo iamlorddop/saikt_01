@@ -722,6 +722,7 @@ body {
 .review__item .review__image img {
   width: 331px;
   height: 536px;
+  border-radius: 22px;
 }
 
 .slider-arrows {

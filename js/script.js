@@ -232,15 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         body: formData
       });
       if (response.ok) {
-        let result = await response.json();
-        alert(result.message);
-
-        document.querySelectorAll('#btn').forEach(item => { 
-          item.addEventListener('onsubmit', () => { 
-              document.getElementsByClassName('training__thanks').style.display = 'flex'; 
-          }); 
-        });
-
+        document.querySelector('.training__thanks').style.display = 'flex';
         form.reset();
       } else {
         alert('Ошибка');

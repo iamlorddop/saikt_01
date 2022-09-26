@@ -9,16 +9,16 @@
 	$mail->isSMTP(); //Send using SMTP
 	$mail->Host = 'smtp.gmail.com';  //Set the SMTP server to send through
 	$mail->SMTPAuth = true;  //Enable SMTP authentication
-	$mail->Username  = 'juliahavaeva7@gmail.com'; //SMTP username
-	$mail->Password  = 'xkbncscofxgdpujg';  //SMTP password
+	$mail->Username  = 'saikt.teacher@gmail.com'; //SMTP username
+	$mail->Password  = 'your password';  //SMTP password
 	$mail->SMTPSecure = "tls";  //Enable implicit TLS encryption
 	$mail->Port = 587; //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 	$mail->CharSet = "UTF-8";
 	$mail->IsHTML(true);
 
-	$mail->setFrom("mail@mail.mail", "САИКТ");
+	$mail->setFrom("saikt.teacher@gmail.com", "САИКТ");
 	// send to
-	$mail->addAddress("juliahavaeva7@gmail.com", "САИКТ");
+	$mail->addAddress("saikt.teacher@gmail.com", "САИКТ");
 	
 	$theme = '[ЗАЯВКА НА ТРЕНИНГ]';
 	$mail->Subject = $theme;

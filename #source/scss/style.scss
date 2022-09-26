@@ -44,6 +44,8 @@ body{
 	display: inline-block;
 	img{
 		display: inline;
+		width: 40px;
+		height: 40px;
 	}
 }
 
@@ -536,7 +538,7 @@ body{
 	margin-right: 40px;
 	width: 413px;
 	height: 567px;
-	background: #efefef;
+	background: #fff;
 	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.13);
 	border-radius: 22px;
 	&:nth-child(3n+1){

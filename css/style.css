@@ -150,6 +150,8 @@ body {
 }
 .contact__image img {
   display: inline;
+  width: 40px;
+  height: 40px;
 }
 
 .header__items {
@@ -703,7 +705,7 @@ body {
   margin-right: 40px;
   width: 413px;
   height: 567px;
-  background: #efefef;
+  background: #fff;
   -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.13);
   border-radius: 22px;

@@ -124,12 +124,12 @@ body {
 }
 
 .header__body {
-  margin: 0 126px;
+  margin: 0 90px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: minmax(71px, 91px);
-  -ms-grid-columns: minmax(125px, 219px) 139px 1fr 139px 114px;
-      grid-template: minmax(71px, 91px)/minmax(125px, 219px) 1fr 114px;
+  -ms-grid-columns: minmax(125px, 219px) 139px 1fr 139px 173px;
+      grid-template: minmax(71px, 91px)/minmax(125px, 219px) 1fr 173px;
   -webkit-column-gap: 139px;
      -moz-column-gap: 139px;
           column-gap: 139px;
@@ -158,6 +158,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .item__image img {
@@ -534,8 +536,10 @@ body {
 }
 
 .blocks {
+  position: relative;
   padding: 100px 60px 86px 60px;
   background: #028CCF;
+  z-index: 1;
 }
 
 .blocks__body {
@@ -566,9 +570,20 @@ body {
   -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.25);
   border-radius: 22px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .block__item:not(:last-child) {
   margin-right: 40px;
+}
+.block__item:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  z-index: 2;
 }
 
 .blocks__initem {
@@ -972,8 +987,8 @@ body {
           column-gap: 64px;
   row-gap: 30px;
   -ms-grid-rows: minmax(51px, 91px) 30px 1fr 30px 20px;
-  -ms-grid-columns: minmax(125px, 254px) 64px minmax(310px, 678px) 64px 114px;
-      grid-template: minmax(51px, 91px) 1fr 20px/minmax(125px, 254px) minmax(310px, 678px) 114px;
+  -ms-grid-columns: minmax(125px, 254px) 64px minmax(310px, 678px) 64px 173px;
+      grid-template: minmax(51px, 91px) 1fr 20px/minmax(125px, 254px) minmax(310px, 678px) 173px;
 }
 
 .footer__contacts {
@@ -1173,8 +1188,8 @@ body {
     display: -ms-grid;
     display: grid;
     -ms-grid-rows: minmax(71px, 91px);
-    -ms-grid-columns: minmax(125px, 219px) 1fr 114px;
-        grid-template: minmax(71px, 91px)/minmax(125px, 219px) 1fr 114px;
+    -ms-grid-columns: minmax(125px, 219px) 1fr 173px;
+        grid-template: minmax(71px, 91px)/minmax(125px, 219px) 1fr 173px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1744,8 +1759,8 @@ body {
   .footer__body {
     margin: 0 10px;
     -ms-grid-rows: 51px 46px 36px 10px;
-    -ms-grid-columns: 245px 0 1fr 0 114px;
-        grid-template: 51px 46px 36px 10px/245px 1fr 114px;
+    -ms-grid-columns: 245px 0 1fr 0 173px;
+        grid-template: 51px 46px 36px 10px/245px 1fr 173px;
     -webkit-column-gap: 0;
        -moz-column-gap: 0;
             column-gap: 0;

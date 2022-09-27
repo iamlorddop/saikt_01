@@ -13,7 +13,7 @@ function hoverOffBtn(){
 }
 
 /* -------------------- slider for blocks -------------------- */
-if(window.matchMedia("(max-width: 1414px)").matches){
+if(window.matchMedia("(max-width: 1540px)").matches){
   let slider = document.querySelector(".blocks__items"),
   sliderList = slider.querySelector(".blocks__slider"),
   sliderTrack = slider.querySelector(".blocks__track"),

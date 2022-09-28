@@ -116,7 +116,7 @@ body {
 
 .container {
   margin: 0px auto;
-  max-width: 1440px;
+  max-width: 1140px;
 }
 
 .header {
@@ -124,7 +124,6 @@ body {
 }
 
 .header__body {
-  margin: 0 90px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: minmax(71px, 91px);
@@ -321,12 +320,12 @@ body {
 }
 
 .benefits__items {
-  margin: 0 0 50px 140px;
+  margin-bottom: 50px;
   display: -ms-grid;
   display: grid;
-  -webkit-column-gap: 38px;
-     -moz-column-gap: 38px;
-          column-gap: 38px;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
   row-gap: 40px;
   grid-template-columns: repeat(auto-fit, minmax(195px, 360px));
   z-index: 5;
@@ -441,7 +440,7 @@ body {
 .circle {
   position: absolute;
   top: -180px;
-  right: -500px;
+  right: -662px;
   z-index: 3;
   -webkit-animation: circle 30s linear infinite;
           animation: circle 30s linear infinite;
@@ -471,13 +470,12 @@ body {
 .photo {
   position: absolute;
   top: -60px;
-  right: 0;
+  right: -165px;
   z-index: 4;
 }
 
 .speaker__about {
   position: relative;
-  margin-left: 140px;
   padding: 35px;
   width: 591px;
   height: 731px;
@@ -696,7 +694,7 @@ body {
 .review__row {
   position: relative;
   margin: 0 auto;
-  width: 1359px;
+  width: 1140px;
   height: 567px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -979,7 +977,6 @@ body {
 }
 
 .footer__body {
-  margin: 0 133px;
   display: -ms-grid;
   display: grid;
   -webkit-column-gap: 64px;
@@ -1042,15 +1039,16 @@ body {
   grid-row: 2/3;
 }
 
+@media (max-width: 2715px) {
+  .about__body {
+    left: 29.5%;
+  }
+}
 @media (max-width: 2560px) {
   .about__body {
     position: absolute;
     top: 26%;
-    left: 22.5%;
-  }
-
-  .benefits__items {
-    margin: 0 0 50px 140px;
+    left: 28.5%;
   }
 }
 @media (max-width: 1890px) {
@@ -1076,6 +1074,33 @@ body {
     left: 17.5%;
   }
 }
+@media (max-width: 1790px) {
+  .block__item {
+    padding: 10px;
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: row;
+    -ms-grid-rows: minmax(40px, 58px) 20px minmax(566px, 562px);
+    -ms-grid-columns: 340px;
+        grid-template: minmax(40px, 58px) minmax(566px, 562px)/340px;
+    row-gap: 20px;
+    width: 362px;
+  }
+  .block__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .blocks__name {
+    padding: 4px 0 0 4px;
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .blocks__image img {
+    width: 338px;
+    height: 194px;
+  }
+}
 @media (max-width: 1540px) {
   .header__body {
     margin: 0 46px;
@@ -1085,7 +1110,7 @@ body {
   }
 
   .about__body {
-    left: 4%;
+    left: 14%;
   }
 
   .about-bg .about__three {
@@ -1100,15 +1125,11 @@ body {
     right: -60px;
   }
 
-  .blocks__body {
-    text-align: left;
-  }
-
   .blocks__items {
     position: relative;
     margin: 0 auto;
-    width: 1828px;
-    height: 672px;
+    width: 1140px;
+    height: 664px;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
@@ -1117,13 +1138,9 @@ body {
         touch-action: pan-y;
   }
 
-  .block__item:not(:last-child) {
-    margin-right: 60px;
-  }
-
   .blocks__slider {
-    width: 1828px;
-    height: 672px;
+    width: 1140px;
+    height: 664px;
   }
   .blocks__slider .grab {
     cursor: -webkit-grab;
@@ -1155,6 +1172,19 @@ body {
 
   .footer__body {
     margin: 0 53px;
+  }
+}
+@media (max-width: 1480px) {
+  .blocks__body {
+    text-align: left;
+  }
+
+  .blocks__items {
+    width: 1500px;
+  }
+
+  .blocks__slider {
+    width: 1500px;
   }
 }
 @media (max-width: 1280px) {
@@ -1975,7 +2005,7 @@ body {
   }
 
   .review__row {
-    width: 1212px;
+    width: 1219px;
   }
 
   .review .review__title {
@@ -2027,6 +2057,14 @@ body {
     margin: 0 15px;
     width: 340px;
   }
+
+  .review .review__title {
+    margin: 0 0 30px 19px;
+  }
+
+  .review__track {
+    padding-left: 15px;
+  }
 }
 @media (max-width: 375px) {
   .benefits__items {
@@ -2038,8 +2076,16 @@ body {
             transform: scale(1.1);
   }
 
+  .review__row {
+    width: 1212px;
+  }
+
+  .review .review__title {
+    margin: 0 0 30px 9px;
+  }
+
   .review__track {
-    padding-left: 13px;
+    padding-left: 5px;
   }
 
   .review .review__title {
@@ -2047,7 +2093,7 @@ body {
   }
 
   .review__item {
-    margin-right: 104px;
+    margin-right: 51px;
   }
 
   .training__thanks {

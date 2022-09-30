@@ -123,6 +123,10 @@ body {
   padding: 20px 0 39px 0;
 }
 
+.logo img {
+  pointer-events: none;
+}
+
 .header__body {
   display: -ms-grid;
   display: grid;
@@ -220,6 +224,9 @@ body {
   z-index: 0;
 }
 
+.about-bg {
+  pointer-events: none;
+}
 .about-bg .about__one {
   position: absolute;
   bottom: -1px;
@@ -444,6 +451,7 @@ body {
   z-index: 3;
   -webkit-animation: circle 30s linear infinite;
           animation: circle 30s linear infinite;
+  pointer-events: none;
 }
 
 @-webkit-keyframes circle {
@@ -472,6 +480,7 @@ body {
   top: -60px;
   right: -165px;
   z-index: 4;
+  pointer-events: none;
 }
 
 .speaker__about {
@@ -673,6 +682,7 @@ body {
 
 .review__bg {
   z-index: 6;
+  pointer-events: none;
 }
 .review__bg img {
   width: 718px;
@@ -736,6 +746,7 @@ body {
   width: 331px;
   height: 536px;
   border-radius: 22px;
+  pointer-events: none;
 }
 
 .slider-arrows {

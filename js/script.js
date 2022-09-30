@@ -198,21 +198,35 @@ const btnNext = document.querySelector(".next");
 const itemsCount = items.length;
 const itemWidth = container.clientWidth / slidesToShow;
 const movePosition = slidesToScroll * itemWidth;
+
 items.forEach((item) => {
-  item.style.width = `${itemWidth}px`;
+  item.style.minWidth = `${itemWidth}px`;
 });
+
 btnPrev.addEventListener("click", () => {
   position += movePosition;
+
   setPosition();
+  checkBtns();
 });
+
 btnNext.addEventListener("click", () => {
   position -= movePosition;
+
   setPosition();
+  checkBtns();
 });
 
 const setPosition = () => {
   track.style.transform = `translateX(${position}px)`;
 };
+
+const checkBtns = () => {
+  btnPrev.disabled = position === 0;
+  btnNext.disabled = position === -760;
+};
+
+checkBtns();
 
 /* -------------------- form -------------------- */
 document.addEventListener('DOMContentLoaded', function() {

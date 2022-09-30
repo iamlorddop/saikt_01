@@ -27,6 +27,12 @@ body{
 	padding: 20px 0 39px 0;
 }
 
+.logo{
+	img{
+		pointer-events: none;
+	}
+}
+
 .header__body{
 	display: grid;
 	grid-template: minmax(71px, 91px) / 219px 1fr 173px;
@@ -109,6 +115,7 @@ body{
 }
 
 .about-bg{
+	pointer-events: none;
 	.about__one{
 		position: absolute;
 		bottom: -1px;
@@ -312,6 +319,7 @@ body{
 	right: -662px;
 	z-index: 3;
 	animation: circle 30s linear infinite;
+	pointer-events: none;
 }
 
 @keyframes circle{
@@ -328,6 +336,7 @@ body{
 	top: -60px;
 	right: -165px;
 	z-index: 4;
+	pointer-events: none;
 }
 
 .speaker__about{
@@ -508,6 +517,7 @@ body{
 
 .review__bg{
 	z-index: 6;
+	pointer-events: none;
 	img{
 		width: 718px;
 		height: 718px;
@@ -562,6 +572,7 @@ body{
 			width: 331px;
 			height: 536px;
 			border-radius: 22px;
+			pointer-events: none;
 		}
 	}
 }

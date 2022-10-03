@@ -436,7 +436,7 @@ body {
 
 .speaker {
   position: relative;
-  padding: 100px 0 194px 0;
+  padding: 100px 0;
   background: linear-gradient(135.38deg, #1F6583 49.32%, #028CCF 93.69%);
 }
 
@@ -446,7 +446,7 @@ body {
 
 .circle {
   position: absolute;
-  top: -180px;
+  top: -206px;
   right: -662px;
   z-index: 3;
   -webkit-animation: circle 30s linear infinite;
@@ -477,7 +477,7 @@ body {
 }
 .photo {
   position: absolute;
-  top: -60px;
+  top: -153px;
   right: -165px;
   z-index: 4;
   pointer-events: none;
@@ -1141,6 +1141,42 @@ body {
     margin: 0 0 0 124px;
   }
 }
+@media (max-height: 667px) and (max-width: 375px) {
+  .about .about__top {
+    -ms-grid-rows: 1060px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template: 1060px/repeat(2, 1fr);
+  }
+  .about .about__top .about-bg .about__one {
+    top: -95px;
+  }
+  .about .about__top .about-bg .about__three {
+    top: -434px;
+  }
+  .about .about__top .about-bg .about__four {
+    top: -415px;
+  }
+  .about .about__top .about-bg .about__five {
+    top: -430px;
+  }
+
+  .about__bot .benefits__items {
+    margin: 0 0 0 36px;
+  }
+  .about__bot .certificate {
+    margin-top: 100px;
+  }
+
+  .blocks .block__item {
+    -ms-grid-rows: 64px 562px;
+    -ms-grid-columns: 284px;
+        grid-template: 64px 562px/284px;
+  }
+
+  .speaker .photo {
+    right: -124px;
+  }
+}
 @media (max-width: 2715px) {
   .about__body {
     left: 29.5%;
@@ -1220,7 +1256,7 @@ body {
   }
 
   .speaker {
-    padding: 75px 0 194px 0;
+    padding: 75px 0 100px 0;
   }
 
   .speaker__about {
@@ -2028,6 +2064,7 @@ body {
 }
 @media (max-width: 440px) {
   .about__top .about-bg .about__three {
+    top: -34px;
     right: -96px;
   }
   .about__top .about-bg .about__four {
@@ -2123,11 +2160,11 @@ body {
   }
 
   .review .review__title {
-    margin: 0 0 30px 36px;
+    margin: 0 0 30px 9px;
   }
 
   .review__track {
-    padding-left: 32px;
+    padding-left: 5px;
   }
 
   .review__item {

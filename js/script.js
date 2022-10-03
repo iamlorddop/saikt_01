@@ -1,8 +1,10 @@
 /* -------------------- change day -------------------- */
-const today = String((new Date()).getDate()).padStart(2, '0');
+const todayDay = String((new Date()).getDate()).padStart(2, '0');
+const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+const todayMonth = new Date();
 
 const dayStartElements = document.querySelectorAll(".js-text");
-dayStartElements.forEach((el) => { el.innerText = `${today}` });
+dayStartElements.forEach((el) => { el.innerText = `${todayDay} ${month[todayMonth.getMonth()]}` });
 
 /* -------------------- certificate -------------------- */
 function hoverOnBtn(){
@@ -223,7 +225,7 @@ const setPosition = () => {
 
 const checkBtns = () => {
   btnPrev.disabled = position === 0;
-  btnNext.disabled = position === -760;
+  btnNext.disabled = position === -380;
 };
 
 checkBtns();

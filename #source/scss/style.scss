@@ -115,24 +115,26 @@ body{
 }
 
 .about-bg{
-	pointer-events: none;
 	.about__one{
 		position: absolute;
 		bottom: -1px;
 		right: 0;
 		z-index: 4;
+		pointer-events: none;
 	}
 	.about__three{
 		position: absolute;
 		top: 51px;
 		right: 200px;
 		z-index: 5;
+		pointer-events: none;
 	}
 	.about__four{
 		position: absolute;
 		top: 56px;
 		right: 15px;
 		z-index: 3;
+		pointer-events: none;
 	}
 	.about__five{
 		position: absolute;
@@ -141,6 +143,7 @@ body{
 		width: 730px;
 		height: 730px;
 		z-index: 3;
+		pointer-events: none;
 	}
 }
 
